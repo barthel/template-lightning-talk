@@ -198,9 +198,9 @@
                                 <revealjsdir>reveal.js</revealjsdir>
                                 <!-- put here the reveal.js specific attributes -->
                                 <sourcedir>${project.basedir}/src/main/java</sourcedir>
-                                <revealjs_theme>black</revealjs_theme>
-                                <revealjs_transition>linear</revealjs_transition>
                                 <project-version>${project.version}</project-version>
+                                <revealjs_theme>solarized</revealjs_theme>
+                                <revealjs_transition>linear</revealjs_transition>
                             </attributes>
                         </configuration>
                     </execution>
