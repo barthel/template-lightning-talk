@@ -19,13 +19,21 @@
 
         <slides.filename>slides.html</slides.filename>
 
+        <project.slides.source.directory>${project.basedir}/src/slides</project.slides.source.directory>
+        <project.styles.source.directory>${project.slides.source.directory}/styles</project.styles.source.directory>
+        <project.uml.source.directory>${project.slides.source.directory}/uml</project.uml.source.directory>
+        <project.images.source.directory>${project.slides.source.directory}/images</project.images.source.directory>
+
         <!-- Uses the /docs directory outside of the build directory for github pages. -->
-        <project.slides.directory>${project.basedir}/docs</project.slides.directory>
+        <project.slides.target.directory>${project.basedir}/docs</project.slides.target.directory>
+        <project.images.target.directory>${project.slides.target.directory}/images</project.images.target.directory>
+        <project.styles.target.directory>${project.slides.target.directory}/styles</project.styles.target.directory>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
         <maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
         <download-maven-plugin.version>1.5.0</download-maven-plugin.version>
+        <plantuml-maven-plugin.version>1.2</plantuml-maven-plugin.version>
         <buildnumber-maven-plugin.version>1.4</buildnumber-maven-plugin.version>
 
         <asciidoctor.maven.plugin.version>2.0.0-RC.1</asciidoctor.maven.plugin.version>
@@ -35,6 +43,7 @@
         <asciidoctor-revealjs.version>3.0.0</asciidoctor-revealjs.version>
 
         <revealjs.version>3.8.0</revealjs.version>
+        <plantuml.version>1.2019.3</plantuml.version>
     </properties>
 
     <scm>
@@ -68,6 +77,18 @@
                     <version>${asciidoctor.maven.plugin.version}</version>
                 </plugin>
                 <plugin>
+                    <groupId>com.github.jeluard</groupId>
+                    <artifactId>plantuml-maven-plugin</artifactId>
+                    <version>${plantuml-maven-plugin.version}</version>
+                    <dependencies>
+                        <dependency>
+                            <groupId>net.sourceforge.plantuml</groupId>
+                            <artifactId>plantuml</artifactId>
+                            <version>${plantuml.version}</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
+                <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>buildnumber-maven-plugin</artifactId>
                     <version>${buildnumber-maven-plugin.version}</version>
@@ -84,7 +105,7 @@
                 <configuration>
                     <filesets>
                         <fileset>
-                            <directory>${project.slides.directory}</directory>
+                            <directory>${project.slides.target.directory}</directory>
                         </fileset>
                     </filesets>
                 </configuration>
@@ -163,7 +184,7 @@
                             <goal>copy-resources</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${project.slides.directory}/</outputDirectory>
+                            <outputDirectory>${project.slides.target.directory}/</outputDirectory>
                             <resources>
                                 <resource>
                                     <directory>src/main/resources</directory>
@@ -179,7 +200,7 @@
                             <goal>copy-resources</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${project.slides.directory}/reveal.js/</outputDirectory>
+                            <outputDirectory>${project.slides.target.directory}/reveal.js/</outputDirectory>
                             <resources>
                                 <resource>
                                     <directory>
@@ -218,7 +239,7 @@
                     </dependency>
                 </dependencies>
                 <configuration>
-                    <sourceDirectory>${project.basedir}/src/slides</sourceDirectory>
+                    <sourceDirectory>${project.slides.source.directory}</sourceDirectory>
                 </configuration>
                 <executions>
                     <execution>
@@ -228,7 +249,7 @@
                             <goal>process-asciidoc</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${project.slides.directory}</outputDirectory>
+                            <outputDirectory>${project.slides.target.directory}</outputDirectory>
                             <outputFile>${slides.filename}</outputFile>
                             <backend>revealjs</backend>
                             <templateDir>
@@ -260,4 +281,46 @@
             </plugin>
         </plugins>
     </build>
+    <profiles>
+        <profile>
+            <id>generate-plantuml-images</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.github.jeluard</groupId>
+                        <artifactId>plantuml-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>generate-plantuml-images</id>
+                                <phase>generate-resources</phase>
+                                <goals>
+                                    <goal>generate</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <dependencies>
+                            <dependency>
+                                <groupId>net.sourceforge.plantuml</groupId>
+                                <artifactId>plantuml</artifactId>
+                                <version>${plantuml.version}</version>
+                            </dependency>
+                        </dependencies>
+                        <configuration>
+                            <outputDirectory>${project.images.target.directory}</outputDirectory>
+                            <sourceFiles>
+                                <directory>${project.uml.source.directory}</directory>
+                                <includes>
+                                    <include>**/*.puml</include>
+                                </includes>
+                            </sourceFiles>
+                            <format>svg</format>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>

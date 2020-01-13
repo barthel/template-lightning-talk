@@ -52,6 +52,11 @@ image::sunset.jpg[background, size=cover]
 
 Try setting an animated GIF.
 
+== Diagrams
+
+PlantUML file:
+image::bob_alice.svg[]
+
 == Attributes
 
 Press the down arrow key to see the next sub-slide.
