@@ -19,8 +19,8 @@
 
         <slides.filename>slides.html</slides.filename>
 
-        <!-- Uses a directory outside of the build directory for github pages. -->
-        <project.slides.directory>${project.basedir}/slides</project.slides.directory>
+        <!-- Uses the /docs directory outside of the build directory for github pages. -->
+        <project.slides.directory>${project.basedir}/docs</project.slides.directory>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
