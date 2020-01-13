@@ -1,5 +1,5 @@
 ifndef::_config_included[]
-:author: barthel <barthel@users.noreply.github.com>
+:author: barthel (https://github.com/barthel)
 :date: {revisionDate}
 
 :version-label:
@@ -52,6 +52,7 @@ ifndef::sourcedir[:sourcedir: ../main/java]
 :revealjs_controls: true
 :revealjs_controlsLayout: edges
 :revealjs_controlsTutorial: true
+:revealjs_progress: false
 :revealjs_slideNumber: c/t
 :revealjs_showSlideNumber: speaker
 :revealjs_autoPlayMedia: true

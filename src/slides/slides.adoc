@@ -1,6 +1,6 @@
 include::_config.adoc[]
 = Example Manual
-Doc Writer <doc.writer@example.org>
+{author}
 
 == Introduction
 
