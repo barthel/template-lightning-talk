@@ -1,10 +1,12 @@
 ifndef::_config_included[]
+:author: barthel <barthel@users.noreply.github.com>
+:date: {revisionDate}
+
 :version-label:
 :revnumber: {revisionDate} ({revisionNumber})
 
 :author-separator: pass:q[ · ]
 
-:doctype: book
 :experimental:
 
 :toc-title: Inhaltsverzeichnis
@@ -36,6 +38,28 @@ ifndef::sourcedir[:sourcedir: ../main/java]
 :last-update-label: {revisionNumber} -
 
 :footnotes-title: __________
+
+// Inspired by https://github.com/bentolor/java9to13/tree/master/docs
+
+// :revealjs_theme: solarized
+:revealjs_customtheme: css/slides.css
+:revealjs_autoSlide: 5000
+:revealjs_history: false
+:revealjs_fragmentInURL: true
+:revealjs_viewDistance: 5
+:revealjs_width: 1408
+:revealjs_height: 792
+:revealjs_controls: true
+:revealjs_controlsLayout: edges
+:revealjs_controlsTutorial: true
+:revealjs_slideNumber: c/t
+:revealjs_showSlideNumber: speaker
+:revealjs_autoPlayMedia: true
+:revealjs_defaultTiming: 42
+:revealjs_parallaxBackgroundImage: images/background_3303_2202.jpg
+:revealjs_parallaxBackgroundSize: 3303px 2202px
+
+:source-highlighter: highlightjs
 
 // This flag signals if this config section was already included.
 :_config_included:

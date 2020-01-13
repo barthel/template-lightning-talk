@@ -1,0 +1,6 @@
+@import url(../reveal.js/css/theme/solarized.css);
+
+/** makes font size a bit smaller */
+.reveal {
+    font-size: 30px;
+}

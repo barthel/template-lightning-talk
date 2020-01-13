@@ -11,7 +11,7 @@ Doc Writer <doc.writer@example.org>
 
 == Speaker Notes
 
-Press the `*s*` key to access speaker notes.
+Press the kbd:[`*s*`] key to access speaker notes.
 
 [NOTE.speaker]
 --
@@ -21,10 +21,17 @@ Neat huh?
 
 == Source Code
 
-[source,java]
+[source, java]
 .Java code from project
 ----
 include::{sourcedir}/example/StringUtils.java[tags=contains,indent=0]
+----
+
+[source, rust]
+----
+fn main() {
+    println!("Hello World!");
+}
 ----
 
 This page was built by the following command:
@@ -44,11 +51,11 @@ Press the `*esc*` key to get an overview of your slides.
 == Images
 
 [.thumb]
-image::sunset.jpg[scaledwidth=75%]
+image::sunset_1600_1200.jpg[width=50%]
 
 == Images as background
 
-image::sunset.jpg[background, size=cover]
+image::sunset_1600_1200.jpg[background, size=cover]
 
 Try setting an animated GIF.
 

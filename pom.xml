@@ -270,7 +270,7 @@
                             <templateDir>
                                 ${project.build.directory}/asciidoctor-reveal.js-${asciidoctor-revealjs.version}/templates
                             </templateDir>
-                            <sourceHighlighter>coderay</sourceHighlighter>
+                            <!-- <sourceHighlighter>highlightjs</sourceHighlighter> -->
                             <doctype>html5</doctype>
                             <attributes>
                                 <!-- buildNumber will provided by buildnumber-maven-plugin -->
@@ -287,8 +287,6 @@
                                 <!-- put here the reveal.js specific attributes -->
                                 <sourcedir>${project.basedir}/src/main/java</sourcedir>
                                 <project-version>${project.version}</project-version>
-                                <revealjs_theme>solarized</revealjs_theme>
-                                <revealjs_transition>linear</revealjs_transition>
                             </attributes>
                         </configuration>
                     </execution>
