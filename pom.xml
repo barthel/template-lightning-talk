@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.github.barthel</groupId>
+    <artifactId>template-lightning-talk</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>Template for Asciidoctor based reveal.js slides.</name>
+    <description></description>
+
+    <!--
+    This project was inspired by https://github.com/asciidoctor/asciidoctor-maven-examples/tree/master/asciidoc-to-revealjs-example
+    The credits for the base settings goes to the contributors of the project above.
+    -->
+    <properties>
+
+        <slides.filename>slides.html</slides.filename>
+
+        <!-- Uses a directory outside of the build directory for github pages. -->
+        <project.slides.directory>${project.basedir}/slides</project.slides.directory>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
+        <maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
+        <download-maven-plugin.version>1.5.0</download-maven-plugin.version>
+
+        <asciidoctor.maven.plugin.version>2.0.0-RC.1</asciidoctor.maven.plugin.version>
+        <asciidoctorj.version>2.2.0</asciidoctorj.version>
+        <asciidoctorj-pdf.version>1.5.0-rc.1</asciidoctorj-pdf.version>
+        <asciidoctorj-diagram.version>2.0.0</asciidoctorj-diagram.version>
+        <asciidoctor-revealjs.version>3.0.0</asciidoctor-revealjs.version>
+
+        <revealjs.version>3.8.0</revealjs.version>
+    </properties>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>${maven-clean-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>${maven-resources-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>com.googlecode.maven-download-plugin</groupId>
+                    <artifactId>download-maven-plugin</artifactId>
+                    <version>${download-maven-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.asciidoctor</groupId>
+                    <artifactId>asciidoctor-maven-plugin</artifactId>
+                    <version>${asciidoctor.maven.plugin.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
+        <defaultGoal>clean process-resources</defaultGoal>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-clean-plugin</artifactId>
+                <configuration>
+                    <filesets>
+                        <fileset>
+                            <directory>${project.slides.directory}</directory>
+                        </fileset>
+                    </filesets>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.googlecode.maven-download-plugin</groupId>
+                <artifactId>download-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>install-asciidoctor-revealjs</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>wget</goal>
+                        </goals>
+                        <configuration>
+                            <url>
+                                https://github.com/asciidoctor/asciidoctor-reveal.js/archive/v${asciidoctor-revealjs.version}.zip
+                            </url>
+                            <unpack>true</unpack>
+                            <outputFileName>asciidoctor-reveal.js-${asciidoctor-revealjs.version}.zip</outputFileName>
+                            <outputDirectory>${project.build.directory}</outputDirectory>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>install-revealjs</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>wget</goal>
+                        </goals>
+                        <configuration>
+                            <url>https://github.com/hakimel/reveal.js/archive/${revealjs.version}.zip</url>
+                            <unpack>true</unpack>
+                            <outputFileName>reveal.js-${revealjs.version}.zip</outputFileName>
+                            <outputDirectory>${project.build.directory}</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.slides.directory}/</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>src/main/resources</directory>
+                                    <filtering>true</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>copy-revealjs-resources</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.slides.directory}/reveal.js/</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>
+                                        ${project.build.directory}/reveal.js-${revealjs.version}/
+                                    </directory>
+                                    <includes>
+                                        <include>**/css/**/*.css</include>
+                                        <include>lib/**/*</include>
+                                        <include>js/**/*.js</include>
+                                        <include>plugin/**/*</include>
+                                    </includes>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.asciidoctor</groupId>
+                <artifactId>asciidoctor-maven-plugin</artifactId>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.asciidoctor</groupId>
+                        <artifactId>asciidoctorj</artifactId>
+                        <version>${asciidoctorj.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.asciidoctor</groupId>
+                        <artifactId>asciidoctorj-pdf</artifactId>
+                        <version>${asciidoctorj-pdf.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.asciidoctor</groupId>
+                        <artifactId>asciidoctorj-diagram</artifactId>
+                        <version>${asciidoctorj-diagram.version}</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <sourceDirectory>${project.basedir}/src/slides</sourceDirectory>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>generate-slides</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>process-asciidoc</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.slides.directory}</outputDirectory>
+                            <outputFile>${slides.filename}</outputFile>
+                            <backend>revealjs</backend>
+                            <templateDir>
+                                ${project.build.directory}/asciidoctor-reveal.js-${asciidoctor-revealjs.version}/templates
+                            </templateDir>
+                            <sourceHighlighter>coderay</sourceHighlighter>
+                            <doctype>html5</doctype>
+                            <attributes>
+                                <revealjsdir>reveal.js</revealjsdir>
+                                <!-- put here the reveal.js specific attributes -->
+                                <sourcedir>${project.basedir}/src/main/java</sourcedir>
+                                <revealjs_theme>black</revealjs_theme>
+                                <revealjs_transition>linear</revealjs_transition>
+                                <project-version>${project.version}</project-version>
+                            </attributes>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
