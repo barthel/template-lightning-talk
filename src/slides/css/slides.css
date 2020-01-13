@@ -4,3 +4,62 @@
 .reveal {
     font-size: 30px;
 }
+
+/* 2 column layout */
+.col2 {
+    width:48% !important;
+    margin: 0 1% !important;
+    float:left;
+}
+/* Aufzählung nicht zentrieren im 2col layout.*/
+.reveal .col2 ol, .reveal .col2  dl, .reveal .col2  ul {
+    display:table;
+}
+
+/* poor-mans 3 column layout */
+.col3-l { float: left; width: 33% }
+.col3-lc { float: left; width: 66% }
+.col3-c { width: 33%; display: inline-block; }
+.col3-cr { float: right; width: 66% }
+.col3-r { float: right; width: 33% }
+
+.small p, .small li, p.small, div.small, span.small, .small code, .TABLE.small, .small TH {
+    font-size: 94% !important;
+}
+.x-small p, .x-small li, p.x-small, div.x-small, span.x-small, .x-small code, TABLE.x-small, .x-small TH {
+    font-size: 86% !important;
+}
+.reveal .x-small TH, .reveal .x-small TD, .x-small TD P {
+    padding: 0.1em 0.25em;
+    margin: 8px 0;
+}
+.xx-small p, .xx-small li, p.xx-small, div.xx-small, span.xx-small, .xx-small code, .xx-small TABLE, .xx-small TH {
+    font-size: 78% !important;
+}
+.small LI P {
+    margin: 12px 0;
+}
+.x-small LI P, .xx-small LI P {
+    margin: 6px 0;
+}
+
+/* Kein max height für Codeblöcke */
+.reveal pre code {
+    max-height: none;
+}
+
+/* Inline code */
+.reveal code {
+    border-radius: 5px;
+    padding: 1px 7px;
+    border: 1px solid rgba(255,255,255,.4);
+    background: #745d4840;
+    font-size: .8em;
+    white-space: nowrap; }
+.reveal pre code {
+    padding: 20px;
+    background: #fff8f1c0;
+    border: 1px solid #745d48;
+    font-size: 1.2em;
+    line-height: 1.2em;
+    white-space: pre-wrap; }

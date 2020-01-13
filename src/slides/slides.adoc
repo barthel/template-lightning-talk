@@ -86,3 +86,62 @@ revnumber:: {revnumber}
 .Custom
 project-version:: {project-version}
 sourcedir:: {sourcedir}
+
+== Resources
+
+[.small.col2]
+--
+.References
+* ...
+
+.Articles
+* ...
+
+--
+
+[.small.col2]
+--
+.Contact
+* https://github.com/barthel[*barthel*]
+* ...
+
+.Sources
+* link:{project-scm-url}[*GitHub Repo with Source Code Examples & Slide Sources*]
+
+.Image & Photo Source
+* https://de.freeimages.com/photo/architecture-1216055[Background image]
+* https://de.freeimages.com/photo/sunset-1315691[Sunset]
+--
+
+////
+== Resources
+
+[.col3-l.xx-small]
+--
+.References
+* ...
+
+.Articles
+* ...
+
+--
+
+[.col3-c.xx-small]
+--
+.Contact
+* icon:github[github] https://github.com/barthel[*barthel*]
+* ...
+
+.Sources
+* icon:code-branch[github] link:{project-scm-url}[*GitHub Repo with Source Code Examples & Slide Sources*]
+
+.Image & Photo Source
+* https://de.freeimages.com/photo/architecture-1216055[Background image],
+  https://de.freeimages.com/photo/sunset-1315691[Sunset]
+--
+
+[.col3-r.small]
+--
+...
+--
+////

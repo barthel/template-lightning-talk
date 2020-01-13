@@ -33,7 +33,7 @@ ifndef::sourcedir[:sourcedir: ../main/java]
 :media: screen
 
 :icons: font
-:icon-set: far
+:icon-set: fa
 
 :last-update-label: {revisionNumber} -
 
