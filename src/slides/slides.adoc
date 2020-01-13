@@ -1,10 +1,6 @@
+include::_config.adoc[]
 = Example Manual
 Doc Writer <doc.writer@example.org>
-2014-09-09
-:revnumber: {project-version}
-:example-caption!:
-ifndef::imagesdir[:imagesdir: images]
-ifndef::sourcedir[:sourcedir: ../main/java]
 
 == Introduction
 
@@ -67,6 +63,7 @@ safe-mode-name:: {safe-mode-name}
 docdir:: {docdir}
 docfile:: {docfile}
 imagesdir:: {imagesdir}
+revnumber:: {revnumber}
 
 === Attributes Part 2
 .Custom

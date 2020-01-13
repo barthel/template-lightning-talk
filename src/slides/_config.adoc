@@ -1,0 +1,42 @@
+ifndef::_config_included[]
+:version-label:
+:revnumber: {revisionDate} ({revisionNumber})
+
+:author-separator: pass:q[ · ]
+
+:doctype: book
+:experimental:
+
+:toc-title: Inhaltsverzeichnis
+:preface-title:
+
+:sectanchors:
+
+:caution-caption: Achtung
+:important-caption: Wichtig
+:note-caption: Hinweis
+:tip-caption: Tip
+:warning-caption: Warnung
+
+:appendix-caption: Anhang
+:example-caption: Beispiel
+:figure-caption: Abbildung
+:table-caption: Tabelle
+
+
+:example-caption!:
+ifndef::imagesdir[:imagesdir: images]
+ifndef::sourcedir[:sourcedir: ../main/java]
+// Uses media: screen instead of media: print to hide URLs
+:media: screen
+
+:icons: font
+:icon-set: far
+
+:last-update-label: {revisionNumber} -
+
+:footnotes-title: __________
+
+// This flag signals if this config section was already included.
+:_config_included:
+endif::[]
