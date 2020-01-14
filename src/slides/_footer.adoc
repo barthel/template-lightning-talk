@@ -1,5 +1,5 @@
 // @see: http://blog.schauderhaft.de/2018/07/23/footer-in-revealjs-from-asciidoc/
-[subs=attributes]
+[subs="attributes,replacements"]
 ++++
 <style type="text/css">
     .footer {
@@ -28,13 +28,10 @@
 <div id="lightning-talk-footer" class="footer">
     <span class="element">{doctitle}</span>
     <span class="element">{revnumber}</span>
-    <span class="element">
-        <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
-        <img
+    <span class="element"><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img
 alt="This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License by barthel"
 title="This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License by barthel"
-style="border-width:0" src="./images/cc_by-sa_80_15.png" /></a>
-    </span>
+style="border-width:0" src="./images/cc_by-sa_80_15.png" /></a></span>
 </div>
 
 <script type="text/javascript">
