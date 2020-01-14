@@ -2,6 +2,8 @@ include::_config.adoc[]
 = Example Manual
 {author}
 
+include::_footer.adoc[]
+
 == Introduction
 
 [%step]

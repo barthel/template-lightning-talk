@@ -1,0 +1,49 @@
+// @see: http://blog.schauderhaft.de/2018/07/23/footer-in-revealjs-from-asciidoc/
+[subs=attributes]
+++++
+<style type="text/css">
+    .footer {
+        position: absolute;
+        display: table;
+        width: 100%;
+        bottom: 0;
+    }
+
+    .footer span {
+        display: table-cell;
+        padding: 0px 15px 5px;
+
+        text-align: center;
+        font-size: 0.75rem;
+    }
+
+    .footer span:nth-of-type(1) {
+        text-align: left;
+    }
+    .footer span:nth-last-child(1) {
+        text-align: right;
+    }
+</style>
+
+<div id="lightning-talk-footer" class="footer">
+    <span class="element">{doctitle}</span>
+    <span class="element">{revnumber}</span>
+    <span class="element">
+        <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+        <img
+alt="This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License by barthel"
+title="This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License by barthel"
+style="border-width:0" src="./images/cc_by-sa_80_15.png" /></a>
+    </span>
+</div>
+
+<script type="text/javascript">
+    window.addEventListener("load", function() {
+
+        revealDiv = document.querySelector("body div.reveal")
+        footer = document.getElementById("lightning-talk-footer");
+        revealDiv.appendChild(footer);
+
+    } );
+</script>
+++++
