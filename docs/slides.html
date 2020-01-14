@@ -63,11 +63,11 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );</script><!--[if 
 <aside class="notes"><div class="paragraph"><p>You&#8217;ve unlocked the super secret notes area.
 Neat huh?</p></div></aside></section>
 <section id="_source_code"><h2>Source Code</h2><div class="listingblock"><div class="title">Java code from project</div>
-<div class="content"><pre class="highlightjs highlight"><code data-lang="java" class="language-java hljs">public boolean contains(String haystack, String needle) {
-    return haystack.contains(needle);
+<div class="content"><pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">boolean</span> contains(<span style="color:#0a8;font-weight:bold">String</span> haystack, <span style="color:#0a8;font-weight:bold">String</span> needle) {
+    <span style="color:#080;font-weight:bold">return</span> haystack.contains(needle);
 }</code></pre></div></div>
-<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="rust" class="language-rust hljs">fn main() {
-    println!("Hello World!");
+<div class="listingblock"><div class="content"><pre class="CodeRay highlight"><code data-lang="rust">fn main() {
+    println!(&quot;Hello World!&quot;);
 }</code></pre></div></div>
 <div class="paragraph"><p>This page was built by the following command:</p></div>
 <div class="literalblock"><div class="content"><pre>$ mvn</pre></div></div></section>
@@ -78,7 +78,7 @@ Neat huh?</p></div></aside></section>
 <section id="_images_as_background" data-background-image="images/sunset_1600_1200.jpg" data-background-size="cover"><h2>Images as background</h2>
 <div class="paragraph"><p>Try setting an animated GIF.</p></div></section>
 <section><section id="_diagrams"><h2>Diagrams</h2></section><section id="_plantuml_file"><h2>PlantUML file:</h2><div class="imageblock" style=""><img src="images/bob_alice.svg" alt="bob alice"></div></section><section id="_umlet_file"><h2>UMLet file:</h2><div class="imageblock" style=""><img src="images/example.svg" alt="example"></div></section></section>
-<section><section id="_attributes"><h2>Attributes</h2><div class="paragraph"><p>Press the down arrow key to see the next sub-slide.</p></div></section><section id="_attributes_part_1"><h2>Attributes Part 1</h2><div class="dlist"><div class="title">Built-in</div><dl><dt class="hdlist1">asciidoctor-version</dt><dd><p>2.0.10</p></dd><dt class="hdlist1">safe-mode-name</dt><dd><p>unsafe</p></dd><dt class="hdlist1">docdir</dt><dd><p>/Users/ubarthel/iteratec/source/github.com/barthel/template-lightning-talk/src/slides</p></dd><dt class="hdlist1">docfile</dt><dd><p>/Users/ubarthel/iteratec/source/github.com/barthel/template-lightning-talk/src/slides/slides.adoc</p></dd><dt class="hdlist1">imagesdir</dt><dd><p>images</p></dd><dt class="hdlist1">revnumber</dt><dd><p>14. January 2020 (aa6409f7)</p></dd></dl></div></section><section id="_attributes_part_2"><h2>Attributes Part 2</h2><div class="dlist"><div class="title">Custom</div><dl><dt class="hdlist1">project-version</dt><dd><p>1.0.0-SNAPSHOT</p></dd><dt class="hdlist1">sourcedir</dt><dd><p>/Users/ubarthel/iteratec/source/github.com/barthel/template-lightning-talk/src/main/java</p></dd></dl></div></section></section>
+<section><section id="_attributes"><h2>Attributes</h2><div class="paragraph"><p>Press the down arrow key to see the next sub-slide.</p></div></section><section id="_attributes_part_1"><h2>Attributes Part 1</h2><div class="dlist"><div class="title">Built-in</div><dl><dt class="hdlist1">asciidoctor-version</dt><dd><p>2.0.10</p></dd><dt class="hdlist1">safe-mode-name</dt><dd><p>unsafe</p></dd><dt class="hdlist1">docdir</dt><dd><p>/Users/barthel/sources/github.com/barthel/template-lightning-talk/src/slides</p></dd><dt class="hdlist1">docfile</dt><dd><p>/Users/barthel/sources/github.com/barthel/template-lightning-talk/src/slides/slides.adoc</p></dd><dt class="hdlist1">imagesdir</dt><dd><p>images</p></dd><dt class="hdlist1">revnumber</dt><dd><p>14. January 2020 (60d8089d)</p></dd></dl></div></section><section id="_attributes_part_2"><h2>Attributes Part 2</h2><div class="dlist"><div class="title">Custom</div><dl><dt class="hdlist1">project-version</dt><dd><p>1.0.0-SNAPSHOT</p></dd><dt class="hdlist1">sourcedir</dt><dd><p>/Users/barthel/sources/github.com/barthel/template-lightning-talk/src/main/java</p></dd></dl></div></section></section>
 <section id="_resources"><h2>Resources</h2><div class="openblock small col2"><div class="content"><div class="ulist"><div class="title">References</div><ul><li><p>&#8230;&#8203;</p></li></ul></div>
 <div class="ulist"><div class="title">Articles</div><ul><li><p>&#8230;&#8203;</p></li></ul></div></div></div>
 <div class="openblock small col2"><div class="content"><div class="ulist"><div class="title">Contact</div><ul><li><p><a href="https://github.com/barthel"><strong>barthel</strong></a></p></li><li><p>&#8230;&#8203;</p></li></ul></div>
@@ -208,7 +208,7 @@ Reveal.initialize({
   // Optional libraries used to extend on reveal.js
   dependencies: [
       { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-      { src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+      
       { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
       { src: 'reveal.js/plugin/notes/notes.js', async: true },
       
@@ -219,6 +219,4 @@ Reveal.initialize({
 
   
 
-});</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css"/>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
-<script>hljs.initHighlighting()</script></body></html>
+});</script></body></html>

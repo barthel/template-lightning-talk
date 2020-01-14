@@ -41,7 +41,6 @@ ifndef::sourcedir[:sourcedir: ../main/java]
 
 // Inspired by https://github.com/bentolor/java9to13/tree/master/docs
 
-// :revealjs_theme: solarized
 :revealjs_customtheme: css/slides.css
 :revealjs_autoSlide: 5000
 :revealjs_history: false
@@ -60,7 +59,8 @@ ifndef::sourcedir[:sourcedir: ../main/java]
 :revealjs_parallaxBackgroundImage: images/background_3303_2202.jpg
 :revealjs_parallaxBackgroundSize: 3303px 2202px
 
-:source-highlighter: highlightjs
+:source-highlighter: coderay
+:coderay-css: style
 
 // This flag signals if this config section was already included.
 :_config_included:

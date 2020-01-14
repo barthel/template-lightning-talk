@@ -269,7 +269,7 @@
                             <!--
                             @see: https://github.com/asciidoctor/asciidoctor-reveal.js/issues/257
                             -->
-                            <backend>revealjs:html</backend>
+                            <backend>coderay:html</backend>
                             <templateDir>
                                 ${project.build.directory}/asciidoctor-reveal.js-${asciidoctor-revealjs.version}/templates
                             </templateDir>
